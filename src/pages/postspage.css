@@ -1,0 +1,52 @@
+.posts-page{
+    width: inherit;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 20px;
+    
+}
+
+.ordering-box{
+    border: solid 2px black;
+
+    height: 100px;
+
+    margin: 0px 350px;
+}
+
+.posts-container{
+    display: flex;
+    flex-direction: column;
+
+    /* border: solid 2px black; */
+
+    margin: 0px 350px;
+
+}
+
+.post{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin: 20px 0px;
+
+    border: solid 1px black;
+
+    flex-grow: 1;
+
+    height: 150px;
+}
+
+.post-date{
+    margin-bottom: auto;
+
+}
+
+.post-upvotes{
+    margin-top: auto;
+
+}

@@ -1,0 +1,9 @@
+.App{
+    height: max-content;
+    width: inherit;
+
+    background-color: darkgrey;
+
+    display: flex;
+    flex-direction: column;
+}
