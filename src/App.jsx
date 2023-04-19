@@ -11,117 +11,29 @@ import './App.css'
 function App() {
   const [posts, setPosts] = useState()
   const [displayedPosts, setDisplayedPosts] = useState()
-  // const [searchVal, setSearchVal] = useState()
   
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const {data} = await supabase
-  //       .from('Posts')
-  //       .select()
-  //       .order('created_at', { ascending: true })
-      
-  //     setPosts(data)
-  //   }
-
-  //   fetchData()
-  // }, [])
-
   useEffect(() => {
-    setPosts([
-      {
-        "id": 65,
-        "created_at": "2023-04-10 04:45:54.471979+00",
-        "title": "Which is better? American Revolution or French Revolution?",
-        "content": "",
-        "image": "",
-        "upvotes": 3,
-        "comments": [
-          "America!!!"
-        ]
-      },
-      {
-        "id": 73,
-        "created_at": "2023-04-10 09:20:57.187388+00",
-        "title": "I'm obsessed with the Holy Roman Empire",
-        "content": "It's holy, Roman, and an empire",
-        "image": "",
-        "upvotes": 23,
-        "comments": "[\"Very true\", \"Haha!]"
-      },
-      {
-        "id": 87,
-        "created_at": "2023-04-14 23:53:31.127016+00",
-        "title": "Who is your favorite Founding Father?",
-        "content": "Mine is Thomas Jefferson! What about you?",
-        "image": "https://i.imgur.com/0QpthJU.jpg",
-        "upvotes": 3,
-        "comments": [
-          "It's gotta be George Washington!",
-          "Did you forget about Ben Franklin?"
-        ]
-      },
-      {
-        "id": 59,
-        "created_at": "2023-04-08 01:19:55.739826+00",
-        "title": "I love history!",
-        "content": "",
-        "image": "https://i.imgur.com/wzk9rEB.jpg",
-        "upvotes": 2,
-        "comments": [
-          
-        ]
-      }
-    ])
+    const fetchData = async () => {
+      const {data} = await supabase
+        .from('Posts')
+        .select()
+        .order('created_at', { ascending: true })
+      
+      // console.log(data)
 
-    setDisplayedPosts([
-      {
-        "id": 65,
-        "created_at": "2023-04-10 04:45:54.471979+00",
-        "title": "Which is better? American Revolution or French Revolution?",
-        "content": "",
-        "image": "",
-        "upvotes": 3,
-        "comments": [
-          "America!!!"
-        ]
-      },
-      {
-        "id": 73,
-        "created_at": "2023-04-10 09:20:57.187388+00",
-        "title": "I'm obsessed with the Holy Roman Empire",
-        "content": "It's holy, Roman, and an empire",
-        "image": "",
-        "upvotes": 23,
-        "comments": "[\"Very true\", \"Haha!]"
-      },
-      {
-        "id": 87,
-        "created_at": "2023-04-14 23:53:31.127016+00",
-        "title": "Who is your favorite Founding Father?",
-        "content": "Mine is Thomas Jefferson! What about you?",
-        "image": "https://i.imgur.com/0QpthJU.jpg",
-        "upvotes": 3,
-        "comments": [
-          "It's gotta be George Washington!",
-          "Did you forget about Ben Franklin?"
-        ]
-      },
-      {
-        "id": 59,
-        "created_at": "2023-04-08 01:19:55.739826+00",
-        "title": "I love history!",
-        "content": "",
-        "image": "https://i.imgur.com/wzk9rEB.jpg",
-        "upvotes": 2,
-        "comments": [
-          
-        ]
-      }
-    ])
+      setPosts(data)
+      setDisplayedPosts(data)
+    }
+
+    fetchData()
   }, [])
 
+  useEffect(() => {
+    setDisplayedPosts(posts)
+    // console.log(posts)
+  }, [posts])
 
-
+  
   const handleSearch = (searchVal) => {
 
     if(searchVal === "" || searchVal === " ")
@@ -152,8 +64,8 @@ function App() {
           element: <EditPost posts={posts}/>
         },
         {
-          path: "/post/id:",
-          element: <PostView posts={posts}/>
+          path: "/post/:id",
+          element: <PostView posts={posts} setPosts={setPosts}/>
         },
       ]
     }

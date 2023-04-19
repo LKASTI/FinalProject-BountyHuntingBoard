@@ -1,0 +1,72 @@
+.post-view-page{
+    width: inherit;
+    height: 87.2vh;
+
+    display: flex;
+    flex-direction: column;
+
+    /* background-color: beige; */
+
+    margin-top: 20px;
+}
+
+.post-view{
+    margin: 0px 350px;
+
+
+    background-color: beige;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.post-view >*{
+}
+
+.post-view-content{
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+}
+
+.comments-box{
+    background-color: grey;
+
+    width: 100%;
+
+}
+
+img{
+    height: 100px;
+    width: 100px;
+}
+
+.post-view-editables{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.post-view-upvotes{
+    display: flex;
+    justify-content: start;
+
+    margin-right: auto;
+}
+
+.post-view-buttons{
+    margin-left: auto;
+}
+
+.post-view-deletebutton{
+}
+
+.post-view-editbutton{
+    
+}

@@ -1,0 +1,25 @@
+.editpost-page{
+    width: inherit;
+    height: 87.2vh;
+
+    display: flex;
+    flex-direction: column;
+
+    /* background-color: beige; */
+
+    margin-top: 20px;
+    
+}
+
+.editpost-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin: 0px 350px;
+
+}
+
+.editpost-submitbutton{
+    width: 200px;
+}

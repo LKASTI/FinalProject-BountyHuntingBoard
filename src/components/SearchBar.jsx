@@ -8,7 +8,7 @@ const SearchBar = ({handleSearch}) => {
     const handleSearchValueChange = (e) => {
         setTimeout(() => {
             handleSearch(e.target.value)
-        }, 2000)
+        }, 1000)
     }
 
     return(

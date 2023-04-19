@@ -1,0 +1,24 @@
+.createpost-page{
+    width: inherit;
+    height: 87.2vh;
+
+    display: flex;
+    flex-direction: column;
+
+    /* background-color: beige; */
+
+    margin-top: 20px;
+}
+
+.createpost-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin: 0px 350px;
+
+}
+
+.createpost-submitbutton{
+    width: 200px;
+}
