@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useRoutes,  } from "react-router-dom"
 import { supabase } from './client.js'
-import NavBar from "./components/NavBar.jsx"
+import Header from "./components/Header.jsx"
 import CreatePost from "./pages/CreatePost.jsx"
 import EditPost from "./pages/EditPost.jsx"
 import PostsPage from "./pages/PostsPage.jsx"
@@ -74,7 +74,7 @@ function App() {
   let element = useRoutes([
     {
       path: "/",
-      element: <NavBar handleSearch={handleSearch}/>,
+      element: <Header handleSearch={handleSearch}/>,
       children: [
         {
           path: "/",

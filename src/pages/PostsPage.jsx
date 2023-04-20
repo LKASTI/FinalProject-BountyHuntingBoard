@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react"
 import "./postspage.css"
 import { useNavigate } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
+import SearchBar from "../components/SearchBar.jsx"
 
-const PostsPage = ({displayedPosts, setDisplayedPosts, displayDateDiff}) => {
+
+const PostsPage = ({displayedPosts, setDisplayedPosts, displayDateDiff, handleSearch}) => {
     const navigate = useNavigate()
     
     const orderByDate = () => {
@@ -29,6 +32,9 @@ const PostsPage = ({displayedPosts, setDisplayedPosts, displayDateDiff}) => {
     return(
         <div className="posts-page">
             <div className="ordering-box">
+                <Link to={"/"}>Home</Link>
+                <Link to={"/createpost"}>Create Post</Link>
+                <SearchBar handleSearch={handleSearch}/>
                 <button onClick={orderByDate}>Newest</button>
                 <button onClick={orderByUpvotes}>Most Popular</button>
             </div>
