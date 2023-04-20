@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom"
 import { supabase } from "../client"
 import "./postview.css"
 
-const PostView = ({posts, setPosts}) => {
+const PostView = ({posts, setPosts, displayDateDiff}) => {
     const [post, setPost] = useState()
     const [comment, setComment] = useState()
 
@@ -53,14 +53,17 @@ const PostView = ({posts, setPosts}) => {
 
         const newUpvotes = post.upvotes+1
 
+        //update database
         await supabase
             .from("Posts")
             .update({upvotes: newUpvotes})
             .eq('id', id)
 
+        //update post in postview page
         setPost({...post, upvotes: newUpvotes})
 
 
+        //update post in posts page
         setPosts((posts.map((post) => {
             if(post.id === parseInt(id))
             {
@@ -69,8 +72,6 @@ const PostView = ({posts, setPosts}) => {
             return post
         })))
     }
-
-
 
     const handleCommmentSubmission = async (e) => {
         e.preventDefault()
@@ -86,7 +87,7 @@ const PostView = ({posts, setPosts}) => {
             {post && 
                 <div className="post-view">
                     <div className="post-view-content">
-                        <p className="post-view-date">{post.created_at}</p>
+                        <p className="post-view-date">{displayDateDiff(post.created_at)}</p>
                         <h1 className="post-view-title">{post.title}</h1>
                         <p className="post-view-content">{post.content}</p>
                         <img referrerPolicy="no-referrer" src={post.image} className="post-view-img"/>

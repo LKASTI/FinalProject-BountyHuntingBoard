@@ -12,6 +12,8 @@ function App() {
   const [posts, setPosts] = useState()
   const [displayedPosts, setDisplayedPosts] = useState()
   
+  const currDate = new Date()
+
   useEffect(() => {
     const fetchData = async () => {
       const {data} = await supabase
@@ -46,6 +48,29 @@ function App() {
     }
   }
 
+
+  const displayDateDiff = (creation_date) => {
+    const postMonth = parseInt(creation_date.substring(5, 8))
+    const postDay = parseInt(creation_date.substring(8, 11))
+    const postHour = parseInt(creation_date.substring(11, 14)) - 5
+
+    const currMonth = currDate.getMonth()
+    const currDay = currDate.getDate()
+    const currHour = currDate.getHours()
+
+    const monthDiff = currMonth - postMonth
+    const dayDiff = currDay - postDay
+    const hourDiff = currHour - postHour
+
+    if(monthDiff > 0)
+        return `Created ${monthDiff} month(s) ago`
+    else 
+    if(dayDiff > 0)
+        return `Created ${dayDiff} day(s) ago`
+    else
+        return `Created ${hourDiff} hour(s) ago`
+  }
+
   let element = useRoutes([
     {
       path: "/",
@@ -53,7 +78,7 @@ function App() {
       children: [
         {
           path: "/",
-          element: <PostsPage displayedPosts={displayedPosts}/>
+          element: <PostsPage displayDateDiff={displayDateDiff} setDisplayedPosts={setDisplayedPosts} displayedPosts={displayedPosts}/>
         },
         {
           path: "/createpost",
@@ -65,7 +90,7 @@ function App() {
         },
         {
           path: "/post/:id",
-          element: <PostView posts={posts} setPosts={setPosts}/>
+          element: <PostView displayDateDiff={displayDateDiff} posts={posts} setPosts={setPosts}/>
         },
       ]
     }
