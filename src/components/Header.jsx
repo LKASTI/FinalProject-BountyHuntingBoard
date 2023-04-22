@@ -9,7 +9,7 @@ const Header = () => {
         <>
             <div className="header">
                 <img className="header-img" src={HeaderImage}/>
-                <h1 className="">Bounty Hunter's Board</h1>
+                <h1 className="header-title">Bounty Hunter's Board</h1>
             </div>
             <Outlet/>
         </>

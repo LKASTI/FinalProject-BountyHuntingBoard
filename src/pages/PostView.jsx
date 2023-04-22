@@ -117,6 +117,7 @@ const PostView = ({posts, setPosts, displayDateDiff}) => {
                     </div>
                 </div>
             }
+            <button onClick={() => {window.location = "/"}}>Go Back</button>
         </div>
     )
 }

@@ -2,6 +2,7 @@ import { supabase } from "../client"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import "./createpost.css"
+import GO_BACK_ICON from "../assets/images/go_back_icon.png"
 
 const CreatePost = () => {
     const [title, setTitle] = useState("")
@@ -26,6 +27,10 @@ const CreatePost = () => {
             .insert(post)
             .select()
 
+        window.location = "/"
+    }
+
+    const handleGoBack = () => {
         window.location = "/"
     }
 
@@ -54,6 +59,7 @@ const CreatePost = () => {
                 />
                 <button className="createpost-submitbutton" type="submit">Create</button>
             </form>
+            <img onClick={handleGoBack} className="goback-button" src={GO_BACK_ICON} />
         </div>
     )
 }

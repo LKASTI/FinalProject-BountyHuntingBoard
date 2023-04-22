@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import "./postspage.css"
+import "./animations.scss"
+import "./postspage-navbar.css"
 import { useNavigate } from "react-router-dom"
 import { Link, Outlet } from "react-router-dom"
 import SearchBar from "../components/SearchBar.jsx"
@@ -31,12 +33,16 @@ const PostsPage = ({displayedPosts, setDisplayedPosts, displayDateDiff, handleSe
 
     return(
         <div className="posts-page">
-            <div className="ordering-box">
-                <Link to={"/"}>Home</Link>
-                <Link to={"/createpost"}>Create Post</Link>
+            <div className="navi-box">
+                <div className="posts-homelink">
+                    <Link to={"/"}>Home</Link>
+                </div>
+                <div className="posts-createlink">
+                    <Link to={"/createpost"}>Create Post</Link>
+                </div>
                 <SearchBar handleSearch={handleSearch}/>
-                <button onClick={orderByDate}>Newest</button>
-                <button onClick={orderByUpvotes}>Most Popular</button>
+                <button className="posts-datesort" onClick={orderByDate}>Newest</button>
+                <button className="posts-upvotessort" onClick={orderByUpvotes}>Most Popular</button>
             </div>
 
             <div className="posts-container">
@@ -45,8 +51,8 @@ const PostsPage = ({displayedPosts, setDisplayedPosts, displayDateDiff, handleSe
                         return(
                             <div className="post" onClick={() => {navigate(`/post/${post.id}`)}}>
                                 <p className="post-date">{displayDateDiff(post.created_at)}</p>
-                                <h1>{post.title}</h1>
-                                <p className="post-upvotes">{post.upvotes} upvotes</p>
+                                <h1 className="post-title">{post.title}</h1>
+                                <p className="post-upvotes">{post.upvotes} praises</p>
                             </div>  
                         )
                     })

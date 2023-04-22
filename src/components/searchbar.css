@@ -1,3 +1,14 @@
 .search-bar{
-    margin-right: auto;
+    border-radius: 5px;
+
+    padding: 4px;
+
+    margin-right: 5px;
+
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+
 }
+
+
+

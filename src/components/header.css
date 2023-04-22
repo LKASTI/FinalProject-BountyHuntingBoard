@@ -19,11 +19,25 @@
     flex-shrink: 0;
 
     font-family: "Star Wars";
+    text-align: center;
+
+    margin-top: 15px;
 }
 
 .header-img{
-    width: 900px;
+    width: 1000px;
     height: 200px;
 
     border-radius: 10px;
+}
+
+.header-title{
+    font-size: 65px;
+    letter-spacing: 6px;
+
+    -webkit-text-stroke: 1px grey;
+    /* -webkit-filter: drop-shadow(); */
+
+
+    color: rgb(206, 206, 206) ;
 }

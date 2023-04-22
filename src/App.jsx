@@ -63,22 +63,22 @@ function App() {
     const hourDiff = currHour - postHour
 
     if(monthDiff > 0)
-        return `Created ${monthDiff} month(s) ago`
+        return `Posted ${monthDiff} month(s) ago`
     else 
     if(dayDiff > 0)
-        return `Created ${dayDiff} day(s) ago`
+        return `Posted ${dayDiff} day(s) ago`
     else
-        return `Created ${hourDiff} hour(s) ago`
+        return `Posted ${hourDiff} hour(s) ago`
   }
 
   let element = useRoutes([
     {
       path: "/",
-      element: <Header handleSearch={handleSearch}/>,
+      element: <Header />,
       children: [
         {
           path: "/",
-          element: <PostsPage displayDateDiff={displayDateDiff} setDisplayedPosts={setDisplayedPosts} displayedPosts={displayedPosts}/>
+          element: <PostsPage handleSearch={handleSearch} displayDateDiff={displayDateDiff} setDisplayedPosts={setDisplayedPosts} displayedPosts={displayedPosts}/>
         },
         {
           path: "/createpost",

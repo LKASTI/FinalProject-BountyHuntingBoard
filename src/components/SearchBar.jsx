@@ -12,9 +12,8 @@ const SearchBar = ({handleSearch}) => {
     }
 
     return(
-        <label className="search-bar">
             <input 
-                className="" 
+                className="search-bar" 
                 type="text"
                 placeholder='search for a post'
                 value={searchVal} 
@@ -23,7 +22,6 @@ const SearchBar = ({handleSearch}) => {
                     handleSearchValueChange(e)
                 }}
             />
-        </label>
     )
 }
 
