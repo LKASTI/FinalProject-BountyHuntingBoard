@@ -1,12 +1,13 @@
 .post{
-
-  animation: glitch 4s infinite;
-
-
+  animation: glitch 4s infinite steps(1000);
 }
 
 .createpost-form{
   animation: glitchSmall 5s infinite;
+}
+
+.post-view{
+  animation: glitch 4s infinite;
 }
 
 @keyframes glitch1 {

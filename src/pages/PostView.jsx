@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { supabase } from "../client"
+import GO_BACK_ICON from "../assets/images/go_back_icon.png"
 import "./postview.css"
+import "./animations.scss"
 
 const PostView = ({posts, setPosts, displayDateDiff}) => {
     const [post, setPost] = useState()
@@ -87,13 +89,17 @@ const PostView = ({posts, setPosts, displayDateDiff}) => {
             {post && 
                 <div className="post-view">
                     <div className="post-view-content">
-                        <p className="post-view-date">{displayDateDiff(post.created_at)}</p>
-                        <h1 className="post-view-title">{post.title}</h1>
-                        <p className="post-view-content">{post.content}</p>
-                        <img referrerPolicy="no-referrer" src={post.image} className="post-view-img"/>
-                        <div className="post-view-editables">
+                        <div className="post-view-date_description">
+                            <p className="post-view-date">{displayDateDiff(post.created_at)}</p>
+                            <div className="post-view-description">{post.content}</div>
+                        </div>
+                        <div className="post-view-title_image">
+                            <h1 className="post-view-title">{post.title}</h1>
+                            <img className="post-view-img" referrerPolicy="no-referrer" src={post.image} />
+                        </div>
+                        <div className="post-view-clickables">
                             <div className="post-view-upvotes">
-                                <button onClick={handleUpvote}>upvote</button>
+                                <button onClick={handleUpvote}>praise</button>
                                 <p >{post.upvotes}</p>
                             </div>
                             <div className="post-view-buttons">
@@ -117,7 +123,7 @@ const PostView = ({posts, setPosts, displayDateDiff}) => {
                     </div>
                 </div>
             }
-            <button onClick={() => {window.location = "/"}}>Go Back</button>
+            <img className="goback-button" src={GO_BACK_ICON} onClick={() => {window.location = "/"}}/>
         </div>
     )
 }

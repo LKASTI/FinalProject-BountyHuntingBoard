@@ -10,6 +10,21 @@
     align-items: center;
     background-color: #181818;
 
+    flex-grow: 1;
     
 }
 
+.sidebar-left, .sidebar-right{
+    position: absolute;
+    background-color: rgb(14, 14, 14);
+
+    width: 13vw;
+}
+
+.sidebar-right{
+    left: 0px;
+}
+
+.sidebar-left{
+    right: 0px;
+}

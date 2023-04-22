@@ -97,9 +97,14 @@ function App() {
   ])
 
   return (
-    <div className="App">
-      {element}
-    </div>
+    <>
+      <div className='sidebar-left'/>
+      <div className='sidebar-right'/>
+
+      <div className="App">
+        {element}
+      </div>
+    </>
   )
 }
 
