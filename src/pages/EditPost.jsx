@@ -1,7 +1,9 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { supabase } from "../client"
+import GO_BACK_ICON from "../assets/images/go_back_icon.png"
 import "./editpost.css"
+import "./animations.scss"
 
 const EditPost = ({posts}) => {
     const {id} = useParams()
@@ -45,6 +47,10 @@ const EditPost = ({posts}) => {
         window.location = "/"
     }
 
+    const handleGoBack = () => {
+        window.location = `/post/${id}`
+    }
+
     return(
         <div className="editpost-page">
             <form onSubmit={handleEditPost} className="editpost-form">
@@ -65,6 +71,7 @@ const EditPost = ({posts}) => {
                 />
                 <button className="editpost-submitbutton" type="submit">Submit</button>
             </form>
+            <img onClick={handleGoBack} className="goback-button" src={GO_BACK_ICON} />
         </div>
     )
 }

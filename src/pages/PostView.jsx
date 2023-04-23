@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { supabase } from "../client"
 import GO_BACK_ICON from "../assets/images/go_back_icon.png"
+import UPVOTE_ICON from "../assets/images/upvote_icon.png"
 import "./postview.css"
 import "./animations.scss"
 
@@ -90,7 +91,7 @@ const PostView = ({posts, setPosts, displayDateDiff}) => {
                 <div className="post-view">
                     <div className="post-view-content">
                         <div className="post-view-date_description">
-                            <p className="post-view-date">{displayDateDiff(post.created_at)}</p>
+                            <h2 className="post-view-date">{displayDateDiff(post.created_at)}</h2>
                             <div className="post-view-description">{post.content}</div>
                         </div>
                         <div className="post-view-title_image">
@@ -99,7 +100,7 @@ const PostView = ({posts, setPosts, displayDateDiff}) => {
                         </div>
                         <div className="post-view-clickables">
                             <div className="post-view-upvotes">
-                                <button onClick={handleUpvote}>praise</button>
+                                <img className="post-view-upvoteicon" src={UPVOTE_ICON} onClick={handleUpvote}/>
                                 <p >{post.upvotes}</p>
                             </div>
                             <div className="post-view-buttons">
@@ -109,17 +110,20 @@ const PostView = ({posts, setPosts, displayDateDiff}) => {
                         </div>
                     </div>
                     <div className="comments-box">
-                        {post.comments.length > 0? post.comments.map((comment) => {
-                            return(<p>- {comment}</p>)
-                        }): ""}
-                        <form onSubmit={handleCommmentSubmission}>
+                        <form className="comment-form" onSubmit={handleCommmentSubmission}>
                             <input
+                                className="comment-input"
                                 placeholder="Enter a Comment"
                                 value={comment}
                                 onChange={(e) => {setComment(e.target.value)}}
                             />
-                            <button className="" type="submit">Submit</button>
+                            <button className="comment-submitbutton" type="submit">Submit</button>
                         </form>
+                        <div className="comments">
+                            {post.comments.length > 0? post.comments.map((comment) => {
+                                return(<p>- {comment}</p>)
+                            }): ""}
+                        </div>
                     </div>
                 </div>
             }

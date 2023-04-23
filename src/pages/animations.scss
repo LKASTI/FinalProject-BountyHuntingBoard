@@ -10,6 +10,10 @@
   animation: glitch 4s infinite;
 }
 
+.editpost-form{
+  animation: glitchSmall 5s infinite;
+}
+
 @keyframes glitch1 {
   0% {
     transform: none;
