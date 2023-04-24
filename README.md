@@ -43,6 +43,10 @@ Here's a walkthrough of implemented user stories:
 
 <img src='https://i.imgur.com/d5TC8EO.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
+I cannot embed the gif because it's too long, even after compression so here's the link to the imgur
+
+https://i.imgur.com/d5TC8EO.gif
+
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  
 <!-- Recommended tools:
