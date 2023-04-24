@@ -35,6 +35,7 @@ function App() {
     // console.log(posts)
   }, [posts])
 
+
   
   const handleSearch = (searchVal) => {
 
@@ -46,6 +47,9 @@ function App() {
     {
       setDisplayedPosts(posts.filter((post) => post.title.toLowerCase().includes(searchVal.toLowerCase())))
     }
+
+    console.log(document.body.clientHeight)
+
   }
 
 

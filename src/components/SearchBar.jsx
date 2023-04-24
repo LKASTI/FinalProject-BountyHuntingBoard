@@ -6,9 +6,13 @@ const SearchBar = ({handleSearch}) => {
     const [searchVal, setSearchVal] = useState("")
 
     const handleSearchValueChange = (e) => {
+
         setTimeout(() => {
             handleSearch(e.target.value)
         }, 1000)
+
+        console.log(document.body.clientHeight)
+        
     }
 
     return(

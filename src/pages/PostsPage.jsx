@@ -9,7 +9,21 @@ import SearchBar from "../components/SearchBar.jsx"
 
 const PostsPage = ({displayedPosts, setDisplayedPosts, displayDateDiff, handleSearch}) => {
     const navigate = useNavigate()
+
+    const [useHeightCSS, setUseHeightCSS] = useState(false)
     
+    useEffect(() => {
+        if(document.body.clientHeight > 937)
+        {
+            setUseHeightCSS(true)
+        }
+        else
+        {
+            setUseHeightCSS(false)
+        }
+
+    }, [document.body.clientHeight])
+
     const orderByDate = () => {
         const newlySortedPosts = 
             [...displayedPosts].sort((post1, post2) => {
@@ -32,7 +46,7 @@ const PostsPage = ({displayedPosts, setDisplayedPosts, displayDateDiff, handleSe
     }
 
     return(
-        <div className="posts-page">
+        <div className="posts-page" style={useHeightCSS? {height: 'max-content'} : {height: '100vh'}}>
             <div className="navi-box">
                 <div className="posts-homelink">
                     <Link to={"/"}>Home</Link>
